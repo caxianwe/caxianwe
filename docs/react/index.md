@@ -21,4 +21,7 @@ ES7+ React/Redux/React-Native snippets
 ESLint
 Material Icon Theme
 react developer tools chrome
+
+# Kill a Process Running on a Port
+npx kill-port 3000
 ```
