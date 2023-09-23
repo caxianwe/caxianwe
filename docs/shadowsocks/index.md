@@ -36,12 +36,8 @@ az aks get-credentials --resource-group KubernetesCluster-RG --name KubernetesCu
 
 ```bash
 kubectl get svc shadowsocks-lb -o jsonpath='{.status.loadBalancer.ingress[].ip}'
-```
-
-- Restart Pod
-
-```bash
-kubectl rollout restart deployment/shadowsocks-deployment
+## Rolling Restart
+kubectl rollout restart deployment shadowsocks-deployment
 ```
 
 ## Run Shadowsocks in Docker
