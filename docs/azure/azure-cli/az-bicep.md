@@ -110,7 +110,7 @@ Format a Bicep file and print all output to stdout.
 az bicep format --file {bicep_file} --stdout
 ```
 
-## Generate parameters file for a Bicep file.
+## az bicep generate-params
 
 Generate parameters file for a Bicep file.
 
