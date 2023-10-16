@@ -54,6 +54,9 @@ Only show errors, suppressing warnings.
 **--verbose**
 Increase logging verbosity. Use --debug for full debug logs.
 
+**--subscription**
+Name or ID of subscription. You can configure the default subscription using az account set -s NAME_OR_ID.
+
 ## az bicep build-params
 
 Build a .bicepparam file.
