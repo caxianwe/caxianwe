@@ -21,6 +21,14 @@ Install Bicep CLI.
 az bicep install
 ```
 
+## az bicep upgrade
+
+Upgrade Bicep CLI.
+
+```bash
+az bicep upgrade
+```
+
 ## az bicep build
 
 Build a Bicep file.
