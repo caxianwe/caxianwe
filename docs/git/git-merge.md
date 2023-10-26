@@ -24,3 +24,10 @@ git rebase -i master
 git checkout master 
 git merge devel
 ```
+
+## Combine several recent commits into one
+
+```bash
+git reset --soft "HEAD~n"
+git commit --amend
+```
