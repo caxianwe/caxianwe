@@ -11,7 +11,7 @@ cd ~/.ssh
 ls
 
 # Copy the SSH public key to your clipboard.
-clip < ~/.ssh/id_ed25519.pub
+cat ~/.ssh/id_ed25519.pub | clip
 
 ```
 
