@@ -11,6 +11,7 @@ az account show
 # az group create --location eastus --name ShadowsocksRG
 az container create --resource-group ShadowsocksRG --name shadowsocks-libev --image shadowsocks/shadowsocks-libev --cpu 1 --memory 1 --ip-address public --ports 8388 --environment-variables METHOD=chacha20-ietf-poly1305 PASSWORD=<--your password--> --restart-policy Always
 az container show --name shadowsocks-libev --resource-group ShadowsocksRG --query "ipAddress.ip"
+az container restart --name shadowsocks-libev --resource-group ShadowsocksRG
 az container logs --name shadowsocks-libev --resource-group ShadowsocksRG
 ```
 
@@ -19,14 +20,17 @@ az container logs --name shadowsocks-libev --resource-group ShadowsocksRG
 - Create Kubernetes cluster choosing a suitable [vm size](vm-size-eastus.json), here is the [pricing calculator](https://azure.microsoft.com/en-us/pricing/calculator).
 
 ```bash
+# az cloud set --name AzureChinaCloud
+# az cloud set --name AzureCloud
 # az login
 az account list
 az account set --subscription "Pay As You Go"
 az account show
+# az account list-locations -o table
 # az group delete --name KubernetesCluster-RG
 # az group create --location eastus --name KubernetesCluster-RG
 # az vm list-sizes --location "eastus"
-az aks create --resource-group KubernetesCluster-RG --name KubernetesCuster --node-vm-size Standard_B1ls --generate-ssh-keys
+az aks create --resource-group KubernetesCluster-RG --name KubernetesCuster --node-vm-size Standard_B2s --generate-ssh-keys
 az aks get-credentials --resource-group KubernetesCluster-RG --name KubernetesCuster --admin
 ```
 
