@@ -9,6 +9,9 @@ az account set --subscription "Pay As You Go"
 az account show
 # az group delete --name ShadowsocksRG
 # az group create --location eastus --name ShadowsocksRG
+# az acr create --resource-group ShadowsocksRG --name shadowsocksacr --sku Basic
+# az acr import --name shadowsocksacr --source docker.io/shadowsocks/shadowsocks-libev:latest --image shadowsocks/shadowsocks-libev:latest --username [Docker personal access token username] --password [Docker personal access token] --force
+# az container create --resource-group ShadowsocksRG --name shadowsocks-libev --image shadowsocksacr.azurecr.io/shadowsocks/shadowsocks-libev --cpu 1 --memory 1 --ip-address public --ports 8388 --environment-variables METHOD=chacha20-ietf-poly1305 PASSWORD=<--your password--> --restart-policy Always
 az container create --resource-group ShadowsocksRG --name shadowsocks-libev --image shadowsocks/shadowsocks-libev --cpu 1 --memory 1 --ip-address public --ports 8388 --environment-variables METHOD=chacha20-ietf-poly1305 PASSWORD=<--your password--> --restart-policy Always
 az container show --name shadowsocks-libev --resource-group ShadowsocksRG --query "ipAddress.ip"
 az container restart --name shadowsocks-libev --resource-group ShadowsocksRG
